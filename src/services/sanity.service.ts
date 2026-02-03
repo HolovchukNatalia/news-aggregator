@@ -15,9 +15,12 @@ export const fetchTopics = async (): Promise<SanityTopic[]> => {
 
 // Helper function to match article title with topics
 export const matchTopicToArticle = (
-  title: string,
+  title: string | null,
   topics: SanityTopic[]
 ): SanityTopic | undefined => {
+  // Handle null or empty titles
+  if (!title) return undefined
+  
   const titleLower = title.toLowerCase()
 
   // Find the first topic where any keyword matches the title
