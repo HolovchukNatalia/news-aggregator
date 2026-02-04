@@ -6,8 +6,8 @@ export default defineConfig({
   name: 'default',
   title: 'News Aggregator CMS',
 
-  projectId: 'b03livmn',
-  dataset: 'production',
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || '',
+  dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
 
   plugins: [deskTool()],
 

@@ -3,23 +3,28 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 export const ArticleCardSkeleton = () => {
   return (
     <Card className="flex flex-col h-full">
+      {/* Image skeleton */}
       <div className="w-full h-48 bg-muted animate-pulse rounded-t-lg" />
 
       <CardHeader>
+        {/* Badges skeleton */}
         <div className="flex gap-2 mb-2">
           <div className="h-5 w-20 bg-muted animate-pulse rounded-full" />
           <div className="h-5 w-24 bg-muted animate-pulse rounded-full" />
         </div>
 
+        {/* Title skeleton */}
         <div className="space-y-2">
           <div className="h-4 bg-muted animate-pulse rounded w-full" />
           <div className="h-4 bg-muted animate-pulse rounded w-3/4" />
         </div>
 
+        {/* Date skeleton */}
         <div className="h-3 w-32 bg-muted animate-pulse rounded mt-2" />
       </CardHeader>
 
       <CardContent className="flex-1">
+        {/* Description skeleton */}
         <div className="space-y-2">
           <div className="h-3 bg-muted animate-pulse rounded w-full" />
           <div className="h-3 bg-muted animate-pulse rounded w-full" />
@@ -27,6 +32,7 @@ export const ArticleCardSkeleton = () => {
         </div>
       </CardContent>
 
+      {/* Button skeleton */}
       <div className="p-6 pt-0">
         <div className="h-9 bg-muted animate-pulse rounded" />
       </div>

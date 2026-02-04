@@ -131,7 +131,7 @@ Automatically filters out 15+ Russian propaganda sources including RT, Sputnik, 
 - **Layout**: Classic newspaper grid
 - **Typography**: Serif fonts, proper line heights
 
-## 🧪 Testing
+## Testing
 
 ```bash
 npm run lint

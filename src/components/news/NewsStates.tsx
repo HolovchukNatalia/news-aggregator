@@ -1,4 +1,4 @@
-import { Loader2, AlertCircle, Search, Newspaper } from 'lucide-react'
+import { AlertCircle, Search, Newspaper } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 
 export const LoadingState = () => {
