@@ -4,14 +4,13 @@
 
 @layer base {
   :root {
-    /* Newspaper vintage colors */
-    --background: 45 10% 97%; /* Cream/off-white paper */
-    --foreground: 20 14% 10%; /* Deep charcoal ink */
+    --background: 45 10% 97%;
+    --foreground: 20 14% 10%;
     --card: 40 10% 99%;
     --card-foreground: 20 14% 10%;
     --popover: 40 10% 99%;
     --popover-foreground: 20 14% 10%;
-    --primary: 24 100% 45%; /* Vintage orange/red */
+    --primary: 24 100% 45%;
     --primary-foreground: 60 9% 98%;
     --secondary: 40 10% 92%;
     --secondary-foreground: 20 14% 10%;
@@ -21,7 +20,7 @@
     --accent-foreground: 60 9% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 60 9% 98%;
-    --border: 20 6% 85%; /* Subtle tan border */
+    --border: 20 6% 85%;
     --input: 20 6% 85%;
     --ring: 24 100% 45%;
     --radius: 0.25rem;
@@ -56,36 +55,38 @@
   }
   body {
     @apply bg-background text-foreground font-body;
-    /* Vintage newspaper texture */
-    background-image: 
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.015) 2px,
-        rgba(0,0,0,0.015) 4px
-      );
+
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.015) 2px,
+      rgba(0, 0, 0, 0.015) 4px
+    );
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-headline;
   }
 }
-
-/* Newspaper decorative elements */
 @layer components {
   .newspaper-divider {
     @apply border-t-2 border-double border-border my-4;
   }
-  
+
   .newspaper-heading {
     @apply font-headline font-black tracking-tight uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .vintage-shadow {
-    box-shadow: 
-      2px 2px 0px rgba(0,0,0,0.1),
-      4px 4px 0px rgba(0,0,0,0.05);
+    box-shadow:
+      2px 2px 0px rgba(0, 0, 0, 0.1),
+      4px 4px 0px rgba(0, 0, 0, 0.05);
   }
 }

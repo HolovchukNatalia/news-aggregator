@@ -26,7 +26,6 @@ export const NewsFilters = ({
 }: NewsFiltersProps) => {
   return (
     <div className="space-y-4 mb-6">
-      {/* Search */}
       <div className="relative">
         {isSearching ? (
           <Loader2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground animate-spin" />
@@ -36,7 +35,7 @@ export const NewsFilters = ({
         <Input
           placeholder="Search articles by keyword... (auto-search after 0.8s)"
           value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={e => onSearchChange(e.target.value)}
           className="pl-10"
         />
         {isSearching && (
@@ -46,9 +45,7 @@ export const NewsFilters = ({
         )}
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-4">
-        {/* Source Filter */}
         <div className="flex-1 min-w-[200px]">
           <label className="text-sm font-medium mb-2 flex items-center gap-2">
             <Filter className="h-4 w-4" />
@@ -56,19 +53,17 @@ export const NewsFilters = ({
           </label>
           <select
             value={selectedSource}
-            onChange={(e) => onSourceChange(e.target.value)}
+            onChange={e => onSourceChange(e.target.value)}
             className="w-full h-10 px-3 py-2 text-sm rounded-md border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <option value="">All Sources</option>
-            {sources.map((source) => (
+            {sources.map(source => (
               <option key={source._id} value={source.identifier}>
                 {source.name}
               </option>
             ))}
           </select>
         </div>
-
-        {/* Sort By */}
         <div className="flex-1 min-w-[200px]">
           <label className="text-sm font-medium mb-2 block">Sort By</label>
           <div className="flex gap-2">

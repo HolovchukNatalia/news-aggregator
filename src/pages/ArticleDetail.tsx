@@ -12,7 +12,7 @@ import { useMemo } from 'react'
 export const ArticleDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  
+
   // Fetch all news to find the article by URL-encoded ID
   const { data, isLoading, error } = useNews()
   const { data: topics } = useTopics()
@@ -20,10 +20,10 @@ export const ArticleDetail = () => {
   // Flatten all pages to find article
   const article = useMemo(() => {
     if (!data?.pages || !id) return null
-    
+
     const decodedId = decodeURIComponent(id)
     const allArticles = data.pages.flatMap(page => page.articles || [])
-    return allArticles.find((article) => article.url === decodedId)
+    return allArticles.find(article => article.url === decodedId)
   }, [data, id])
 
   // Get topic for article
@@ -57,30 +57,26 @@ export const ArticleDetail = () => {
     )
   }
 
-  const formattedDate = format(new Date(article.publishedAt), 'MMMM dd, yyyy • HH:mm')
+  const formattedDate = format(
+    new Date(article.publishedAt),
+    'MMMM dd, yyyy • HH:mm'
+  )
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* Back Button */}
-      <Button
-        variant="ghost"
-        onClick={() => navigate('/')}
-        className="mb-6"
-      >
+      <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to News Feed
       </Button>
 
-      {/* Article Card */}
       <Card className="overflow-hidden">
-        {/* Featured Image */}
         {article.urlToImage && (
           <div className="w-full h-96 overflow-hidden">
             <img
               src={article.urlToImage}
               alt={article.title}
               className="w-full h-full object-cover"
-              onError={(e) => {
+              onError={e => {
                 e.currentTarget.style.display = 'none'
               }}
             />
@@ -88,7 +84,6 @@ export const ArticleDetail = () => {
         )}
 
         <div className="p-8">
-          {/* Badges */}
           <div className="flex gap-2 mb-4 flex-wrap">
             <Badge variant="outline">{article.source.name}</Badge>
             {topic && (
@@ -102,12 +97,10 @@ export const ArticleDetail = () => {
             )}
           </div>
 
-          {/* Title */}
           <h1 className="text-4xl font-bold mb-4 leading-tight">
             {article.title}
           </h1>
 
-          {/* Meta Info */}
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">
             <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
@@ -121,21 +114,18 @@ export const ArticleDetail = () => {
             )}
           </div>
 
-          {/* Description */}
           {article.description && (
             <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
               {article.description}
             </p>
           )}
 
-          {/* Content */}
           {article.content && (
             <div className="prose prose-lg max-w-none mb-8">
               <p className="leading-relaxed">{article.content}</p>
             </div>
           )}
 
-          {/* Read Full Article Button */}
           <div className="border-t pt-6">
             <Button
               size="lg"

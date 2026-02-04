@@ -7,16 +7,14 @@ export const Footer = () => {
     <footer className="border-t mt-16 bg-muted/30">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About */}
           <div>
-            <h3 className="font-semibold mb-3">📰 News Aggregator</h3>
+            <h3 className="font-semibold mb-3"> News Aggregator</h3>
             <p className="text-sm text-muted-foreground">
               Stay informed with the latest headlines from trusted sources.
               Powered by News API and Sanity CMS.
             </p>
           </div>
 
-          {/* Features */}
           <div>
             <h3 className="font-semibold mb-3">Features</h3>
             <ul className="text-sm text-muted-foreground space-y-2">
@@ -27,7 +25,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Tech Stack */}
           <div>
             <h3 className="font-semibold mb-3">Built With</h3>
             <ul className="text-sm text-muted-foreground space-y-2">
@@ -39,12 +36,12 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} News Aggregator. Created for Junior Frontend Developer position.
+            © {currentYear} News Aggregator. Created for Junior Frontend
+            Developer position.
           </p>
-          
+
           <div className="flex gap-4">
             <a
               href="https://github.com"
