@@ -1,6 +1,3 @@
-// Blocked domains - Russian propaganda and disinformation sources
-// This list blocks Russian state media and propaganda outlets
-
 export const BLOCKED_DOMAINS = [
   // Russian state media
   'rt.com',
@@ -24,7 +21,6 @@ export const isBlockedDomain = (url: string): boolean => {
   try {
     const domain = new URL(url).hostname.toLowerCase()
 
-    // Check exact match or subdomain
     return BLOCKED_DOMAINS.some(
       blocked => domain === blocked || domain.endsWith('.' + blocked)
     )
@@ -54,7 +50,7 @@ export const filterBlockedArticles = <
     blockedArticles.forEach(article => {
       const domain = new URL(article.url).hostname
       console.log(
-        `  • ${domain}: ${article.title?.substring(0, 60) || 'No title'}...`
+        ` • ${domain}: ${article.title?.substring(0, 60) || 'No title'}...`
       )
     })
   }

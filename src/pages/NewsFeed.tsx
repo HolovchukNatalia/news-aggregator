@@ -20,10 +20,8 @@ export const NewsFeed = () => {
     'publishedAt'
   )
 
-  // Ref for infinite scroll
   const loadMoreRef = useRef<HTMLDivElement>(null)
 
-  // Auto-search with debounce (waits 800ms after typing stops)
   const debouncedSearchQuery = useDebounce(searchQuery, 800)
 
   // Build filters object
@@ -33,7 +31,6 @@ export const NewsFeed = () => {
     sortBy,
   }
 
-  // Fetch data with infinite query
   const {
     data,
     isLoading,
@@ -52,7 +49,6 @@ export const NewsFeed = () => {
     return data.pages.flatMap(page => page.articles || [])
   }, [data])
 
-  // Enhance articles with topics
   const articlesWithTopics: ArticleWithTopic[] = useMemo(() => {
     if (!allArticles || !topics) return []
 
@@ -62,14 +58,12 @@ export const NewsFeed = () => {
     }))
   }, [allArticles, topics])
 
-  // Intersection Observer for infinite scroll
   useEffect(() => {
     if (!loadMoreRef.current || !hasNextPage || isFetchingNextPage) return
 
     const observer = new IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting) {
-          console.log('Loading more articles...')
           fetchNextPage()
         }
       },
@@ -80,8 +74,8 @@ export const NewsFeed = () => {
 
     return () => observer.disconnect()
   }, [hasNextPage, isFetchingNextPage, fetchNextPage])
-  const isSearching = searchQuery !== debouncedSearchQuery
 
+  const isSearching = searchQuery !== debouncedSearchQuery
   if (sourcesLoading) {
     return <LoadingState />
   }
@@ -106,7 +100,6 @@ export const NewsFeed = () => {
           <span className="px-3 py-1 border border-destructive/50 text-destructive uppercase tracking-wider">
             Propaganda Blocked
           </span>
-          <span className="text-muted-foreground">🇺🇦</span>
         </div>
       </div>
 

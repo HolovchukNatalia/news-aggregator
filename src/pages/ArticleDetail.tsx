@@ -12,12 +12,10 @@ import { useMemo } from 'react'
 export const ArticleDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-
-  // Fetch all news to find the article by URL-encoded ID
+  і
   const { data, isLoading, error } = useNews()
   const { data: topics } = useTopics()
 
-  // Flatten all pages to find article
   const article = useMemo(() => {
     if (!data?.pages || !id) return null
 
@@ -26,7 +24,6 @@ export const ArticleDetail = () => {
     return allArticles.find(article => article.url === decodedId)
   }, [data, id])
 
-  // Get topic for article
   const topic = useMemo(() => {
     if (!article || !topics) return null
     return matchTopicToArticle(article.title, topics)
@@ -64,6 +61,7 @@ export const ArticleDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      {/* Back Button */}
       <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to News Feed
@@ -96,7 +94,6 @@ export const ArticleDetail = () => {
               </Badge>
             )}
           </div>
-
           <h1 className="text-4xl font-bold mb-4 leading-tight">
             {article.title}
           </h1>

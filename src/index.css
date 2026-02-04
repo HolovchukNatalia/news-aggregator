@@ -55,7 +55,6 @@
   }
   body {
     @apply bg-background text-foreground font-body;
-
     background-image: repeating-linear-gradient(
       0deg,
       transparent,
@@ -74,6 +73,7 @@
     @apply font-headline;
   }
 }
+
 @layer components {
   .newspaper-divider {
     @apply border-t-2 border-double border-border my-4;

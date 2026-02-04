@@ -60,7 +60,7 @@ export const EmptyState = () => {
             adjusting your filters or search query.
           </p>
           <div className="text-sm text-muted-foreground">
-            <p className="mb-2 font-medium">💡 Tips:</p>
+            <p className="mb-2 font-medium">Tips:</p>
             <ul className="text-left max-w-xs mx-auto space-y-1">
               <li>• Try different keywords</li>
               <li>• Remove filters to see all news</li>

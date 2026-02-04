@@ -64,6 +64,7 @@ export const NewsFilters = ({
             ))}
           </select>
         </div>
+
         <div className="flex-1 min-w-[200px]">
           <label className="text-sm font-medium mb-2 block">Sort By</label>
           <div className="flex gap-2">
