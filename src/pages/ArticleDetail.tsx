@@ -12,7 +12,6 @@ import { useMemo } from 'react'
 export const ArticleDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  і
   const { data, isLoading, error } = useNews()
   const { data: topics } = useTopics()
 
